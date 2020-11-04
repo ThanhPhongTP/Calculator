@@ -65,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 if (data == null) {
                     data = "";
                 }
-                data += s;
+                if(data.endsWith("%")) // kiem tra nhap a%b%
+                    data += "x" + s;
+                else
+                    data += s;
         }
         tvkq.setText(data);
     }
@@ -272,59 +275,34 @@ public class MainActivity extends AppCompatActivity {
 
     //Tinh phan tram
     private void percent() {
-        double pt = 0;
+        double per = 0;
         //a%b
         if (data.split("%").length == 2) {
             String numbers[] = data.split("%");
             try {
-                pt = Double.parseDouble(numbers[0]) / 100 * Double.parseDouble(numbers[1]);
-                data = pt + "";
+                per = Double.parseDouble(numbers[0]) / 100 * Double.parseDouble(numbers[1]);
+                data = per + "";
             } catch (Exception e) {
             }
         }
         //a%
         else if (data.endsWith("%") && data.split("%").length == 1) {
             String[] numbers = data.split("%");
-
             try {
-                pt = Double.parseDouble(numbers[0]) / 100;
-                data = pt + "";
+                per = Double.parseDouble(numbers[0]) / 100;
+                data = per + "";
             } catch (Exception e) {
             }
         }
-//        else if (data.split("%").length > 2 && data.endsWith("%")) {
-//            String numbers[] = data.split("%");
-//            try {
-//                pt = Double.parseDouble(numbers[0]) / 100 * (Double.parseDouble(numbers[1]) / 100);
-//                Toast.makeText(this, "sadds", Toast.LENGTH_SHORT).show();
-//                data = pt + "";
-//            } catch (Exception e) {
-//            }
-//        }
         tvkq.setText(data);
     }
 
-    //Loai bo .0 trong kieu double
-    private void removeZero() {
-        String n[] = data.split("\\.");
-        if (n.length > 1) {
-            if (n[1].equals("0")) {
-                data = n[0];
-            }
-        }
-        tvkq.setText(data);
-    }
 
     //Tinh nghich dao
-    /*
-     * a,b
-     * a%
-     * b%
-     */
     private void inverse() {
         double nd = 0;
         if (data.length() > 0) {
-            if (data.endsWith("%") || data.endsWith("+") || data.endsWith("x") || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
+            if (data.endsWith("%") || data.endsWith("+") ||data.endsWith("-") || data.endsWith("x") || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
                 return;
             else {
                 nd = Double.parseDouble(data) * -1;
@@ -351,9 +329,9 @@ public class MainActivity extends AppCompatActivity {
         else if (data.endsWith("x"))
             data = data.replace("x", "÷");
         else if (data.endsWith("÷"))
-            data = data.replace("÷", "÷");
-        else if (data.endsWith("."))
-            data = data.replace(".", "÷");
+            return;
+        else if (data.endsWith(".") && data.length() > 1)
+            data = data.substring(0, data.length() - 1) + "÷";
         else if (data != "") {
             operation();
             data += "÷";
@@ -370,9 +348,9 @@ public class MainActivity extends AppCompatActivity {
         else if (data.endsWith("÷"))
             data = data.replace("÷", "x");
         else if (data.endsWith("x"))
-            data = data.replace("x", "x");
-        else if (data.endsWith("."))
-            data = data.replace(".", "x");
+            return;
+        else if (data.endsWith(".") && data.length() > 1)
+            data = data.substring(0, data.length() - 1) + "x";
         else if (data != "") {
             operation();
             data += "x";
@@ -389,9 +367,9 @@ public class MainActivity extends AppCompatActivity {
         else if (data.endsWith("÷"))
             data = data.replace("÷", "+");
         else if (data.endsWith("+"))
-            data = data.replace("+", "+");
-        else if (data.endsWith("."))
-            data = data.replace(".", "+");
+            return;
+        else if (data.endsWith(".") && data.length() > 1)
+            data = data.substring(0, data.length() - 1) + "+";
         else if (data != "") {
             operation();
             data += "+";
@@ -406,58 +384,51 @@ public class MainActivity extends AppCompatActivity {
         else if (data.endsWith("÷"))
             data = data.replace("÷", "-");
         else if (data.endsWith("-"))
-            data = data.replace("-", "-");
-        else if (data.endsWith("."))
-            data = data.replace(".", "-");
+            return;
+        else if (data.endsWith(".") && data.length() > 1)
+            data = data.substring(0, data.length() - 1) + "-";
         else {
             operation();
             data += "-";
         }
     }
 
+    //Kiem tra dau phay
     private void checkDot() {
-        if (data.startsWith(".") && data.length() < 2)
-            data = data.replace(".", "");
-        else if (data.endsWith("."))
-            data = data.replace(".", ".");
-        else if (data.endsWith("x"))
-            data = data.replace("x", ".");
-        else if (data.endsWith("÷"))
-            data = data.replace("÷", ".");
-        else if (data.endsWith("-"))
-            data = data.substring(0, data.length() - 1) + ".";
-        else if (data.endsWith("+"))
-            data = data.replace("+", ".");
+        if (data.length() < 1 || data.endsWith(".") || data.endsWith("x") || data.endsWith("÷") || data.endsWith("-") || data.endsWith("+"))
+            return;
         else {
 //            operation();
             data += ".";
         }
     }
 
+    //Kiem tra phan tram
     private void checkpercent() {
-//        if(data.split("%").length == 2){
-//            tvpt.setText(data);
-//            data = data.replace(data,data);
-//            percent();
-//
-//        }
-
-        if (data.length() < 1)
-            data = data.replace("%", "");
-        else if (data.startsWith("-") && data.length() < 2)
-            data = data.replace("%", "");
-        else if (data.endsWith("%"))
-            data = data.replace("%", "%");
+        if (data.length() < 1 || data.endsWith("x") || data.endsWith("÷") || data.endsWith("-") || data.endsWith("+") || data.endsWith("%"))
+            return;
         else
             data += "%";
     }
 
+    //Xoa 1 ky tu
     private void delete() {
         if (data.length() > 0) {
             // tvkq.setText(tvkq.getText().subSequence(0, tvkq.length() - 1));// lay chuoi
             String del = data.substring(0, data.length() - 1); //lay chuoi con
             data = del;
         }
+    }
+
+    //Loai bo .0 trong kieu double
+    private void removeZero() {
+        String n[] = data.split("\\.");
+        if (n.length > 1) {
+            if (n[1].equals("0")) {
+                data = n[0];
+            }
+        }
+        tvkq.setText(data);
     }
 
     private void setControl() {
