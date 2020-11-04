@@ -8,4 +8,61 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="btnAC_C_PT">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/nen1</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="btnPhepTinh">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/dau</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="btnSo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/nen</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="txtPhepToan">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginTop">100dp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="txtKetQua">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">50sp</item>
+    </style>
+
+    <style name="tbrow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:weightSum">4</item>
+    </style>
+
+
 </resources>

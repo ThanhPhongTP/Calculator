@@ -16,26 +16,11 @@
 
         <TextView
             android:id="@+id/tvpheptoan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_gravity="right"
-            android:layout_weight="1"
-            android:layout_marginTop="100dp"
-            android:textColor="#fff"
-            android:textSize="30sp"></TextView>
+            style="@style/txtPhepToan"></TextView>
 
         <TextView
             android:id="@+id/tvketqua"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_gravity="right"
-            android:textColor="#fff"
-            android:textSize="50sp"></TextView>
+            style="@style/txtKetQua"></TextView>
     </LinearLayout>
 
     <TableLayout
@@ -44,256 +29,139 @@
         android:layout_weight="3"
         android:orientation="vertical">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="4">
+        <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnac"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen1"
                 android:onClick="buttonClick"
                 android:text="@string/AC"
-                android:textSize="26sp"></Button>
+                style="@style/btnAC_C_PT"></Button>
 
             <Button
                 android:id="@+id/btndelete"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen1"
                 android:onClick="buttonClick"
                 android:text="@string/xoa"
-                android:textSize="26sp"></Button>
+                style="@style/btnAC_C_PT"></Button>
 
             <Button
                 android:id="@+id/btnphantram"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen1"
                 android:onClick="buttonClick"
                 android:text="@string/phantram"
-                android:textSize="26sp"></Button>
+                style="@style/btnAC_C_PT"></Button>
 
             <Button
                 android:id="@+id/btnchia"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/dau"
                 android:onClick="buttonClick"
                 android:text="@string/chia"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnPhepTinh"></Button>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="4">
+        <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnbay"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/bay"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btntam"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/tam"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnchin"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:onClick="buttonClick"
                 android:text="@string/chin"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnnhan"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:onClick="buttonClick"
-                android:background="@color/dau"
                 android:text="@string/nhan"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnPhepTinh"></Button>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="4">
+        <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnbon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:onClick="buttonClick"
                 android:text="@string/bon"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnnam"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:onClick="buttonClick"
-                android:background="@color/nen"
                 android:text="@string/nam"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnsau"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:onClick="buttonClick"
                 android:text="@string/sau"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btntru"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/dau"
                 android:onClick="buttonClick"
                 android:text="@string/tru"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnPhepTinh"></Button>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="4">
+        <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnmot"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/mot"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnhai"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/hai"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnba"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/ba"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btncong"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/dau"
                 android:text="@string/cong"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnPhepTinh"></Button>
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:weightSum="4">
+        <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnkhong"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/khong"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btncham"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:text="@string/cham"
-                android:textColor="#fff"
                 android:onClick="buttonClick"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnnghicdao"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/nen"
                 android:onClick="buttonClick"
                 android:text="@string/nghichdao"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnSo"></Button>
 
             <Button
                 android:id="@+id/btnbang"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/dau"
                 android:text="@string/bang"
                 android:onClick="buttonClick"
-                android:textColor="#fff"
-                android:textSize="26sp"></Button>
+                style="@style/btnPhepTinh"></Button>
         </TableRow>
     </TableLayout>
 
