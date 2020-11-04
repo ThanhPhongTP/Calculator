@@ -3,7 +3,6 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,15 +11,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     TextView tvkq, tvpt;
     Button btn1, btn0, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btncong, btntru, btnnhan, btnchia, btnphantram, btncham, btnbang, bntAC, btnxoa, btnnghichdao;
-    double num1;
-    double num2;
     String data = "";
-    char pt;
-    final char cong = '+';
-    final char tru = '-';
-    final char nhan = '*';
-    final char chia = '/';
-    final char bang = '0';
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -279,9 +270,10 @@ public class MainActivity extends AppCompatActivity {
         tvkq.setText(data);
     }
 
-    //Tinh phan tram a%b
+    //Tinh phan tram
     private void percent() {
         double pt = 0;
+        //a%b
         if (data.split("%").length == 2) {
             String numbers[] = data.split("%");
             try {
@@ -290,11 +282,21 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
             }
         }
+        //a%
+        else if (data.endsWith("%") && data.split("%").length == 1) {
+            String[] numbers = data.split("%");
 
-//        if (data.split("%").length == 1) {
+            try {
+                pt = Double.parseDouble(numbers[0]) / 100;
+                data = pt + "";
+            } catch (Exception e) {
+            }
+        }
+//        else if (data.split("%").length > 2 && data.endsWith("%")) {
 //            String numbers[] = data.split("%");
 //            try {
-//                pt = Double.parseDouble(numbers[0]) / 100;
+//                pt = Double.parseDouble(numbers[0]) / 100 * (Double.parseDouble(numbers[1]) / 100);
+//                Toast.makeText(this, "sadds", Toast.LENGTH_SHORT).show();
 //                data = pt + "";
 //            } catch (Exception e) {
 //            }
@@ -322,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
     private void inverse() {
         double nd = 0;
         if (data.length() > 0) {
-            if (data.endsWith("%") || data.endsWith("+") || data.endsWith("x") || data.endsWith("÷"))
+            if (data.endsWith("%") || data.endsWith("+") || data.endsWith("x") || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
                 return;
             else {
                 nd = Double.parseDouble(data) * -1;
