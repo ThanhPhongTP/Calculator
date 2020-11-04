@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case "=":
                 operation();
+                percent();
                 break;
             case "%":
                 checkpercent();
+                operation();
 //                if (data != "")
 //                    data += "%";
                 break;
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 if (data == null) {
                     data = "";
                 }
-                if(data.endsWith("%")) // kiem tra nhap a%b%
+                if (data.endsWith("%")) // kiem tra nhap a%b%
                     data += "x" + s;
                 else
                     data += s;
@@ -268,7 +270,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
             }
         }
-        percent();
         removeZero();
         tvkq.setText(data);
     }
@@ -302,7 +303,8 @@ public class MainActivity extends AppCompatActivity {
     private void inverse() {
         double nd = 0;
         if (data.length() > 0) {
-            if (data.endsWith("%") || data.endsWith("+") ||data.endsWith("-") || data.endsWith("x") || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
+            if (data.endsWith("%") || data.endsWith("+") || data.endsWith("-") || data.endsWith("x")
+                    || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
                 return;
             else {
                 nd = Double.parseDouble(data) * -1;
