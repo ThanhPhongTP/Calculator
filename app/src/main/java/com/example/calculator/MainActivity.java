@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tvkq, tvpt;
     Button btn1, btn0, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btncong, btntru, btnnhan, btnchia, btnphantram, btncham, btnbang, bntAC, btnxoa, btnnghichdao;
     String data = "";
-    public static final String TAG = MainActivity.class.getSimpleName();
+    //public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 checkDiv();
                 break;
             case ".":
+//                if(data.contains("."))
+//                    return;
                 checkDot();
+
                 break;
             default:// Cac button con lai
                 if (data == null) {
@@ -194,9 +197,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             data = summation
                     + "";
-        } else if (data.split("\\-").length > 1) {                        //--------Tru-------//
+        } else if (data.split("-").length > 1) {                        //--------Tru-------//
             tvpt.setText(data);
-            String numbers[] = data.split("\\-");
+            String numbers[] = data.split("-");
             double subtraction = 0;
 //            if (numbers[0] == "") {
 //                numbers[0] = 0 + "";
@@ -298,20 +301,57 @@ public class MainActivity extends AppCompatActivity {
         tvkq.setText(data);
     }
 
-
     //Tinh nghich dao
     private void inverse() {
         double nd = 0;
+        String numbers[];
         if (data.length() > 0) {
             if (data.endsWith("%") || data.endsWith("+") || data.endsWith("-") || data.endsWith("x")
                     || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
                 return;
+            else if(data.split("x").length == 2){  // nghich dao b
+                numbers = data.split("x");
+                nd = Double.parseDouble(numbers[1]) * -1;
+                String a = nd + "";
+                String newnd[] = a.split("\\.");
+                if(newnd[1].equals("0"))
+                    data = numbers[0] + "x" + newnd[0];
+                else if (!newnd[1].equals("0"))
+                    data = numbers[0] + "x" + a;
+            }
+            else if(data.split("\\+").length == 2){
+                numbers = data.split("\\+");
+                nd = Double.parseDouble(numbers[1]) * -1;
+                String a = nd + "";
+                String newnd[] = a.split("\\.");
+                if(newnd[1].equals("0"))
+                    data = numbers[0] + "+" + newnd[0];
+                else if (!newnd[1].equals("0"))
+                    data = numbers[0] + "+" + a;
+            }
+            else if(data.split("÷").length == 2){
+                numbers = data.split("÷");
+                nd = Double.parseDouble(numbers[1]) * -1;
+                String a = nd + "";
+                String newnd[] = a.split("\\.");
+                if(newnd[1].equals("0"))
+                    data = numbers[0] + "÷" + newnd[0];
+                else if (!newnd[1].equals("0"))
+                    data = numbers[0] + "÷" + a;
+            }
+            else if(data.split("-").length == 3){ //-a--b = -a+b
+                numbers = data.split("-");
+                data = "-" + numbers[1] + "+" + numbers[2];
+            }
+            else if(data.split("-").length == 2 && !data.startsWith("-")) { // a--b = a+b
+                numbers = data.split("-");
+                data = numbers[0] + "+" + numbers[1];
+            }
             else {
                 nd = Double.parseDouble(data) * -1;
                 data = nd + "";
-                removeZero();
-                tvkq.setText(data);
             }
+            removeZero();
         }
     }
 
@@ -397,6 +437,36 @@ public class MainActivity extends AppCompatActivity {
 
     //Kiem tra dau phay
     private void checkDot() {
+        String numbers[];
+        if (data.contains(".") && !data.contains("x") && !data.contains("÷") && !data.contains("+") && !data.contains("-")) //Kiem tra a
+            return;
+        else if (data.split("x").length == 2) {
+            numbers = data.split("x");
+            if (numbers[1].contains(".")) {
+                return;
+            }
+        } else if (data.split("÷").length == 2) {
+            numbers = data.split("÷");
+            if (numbers[1].contains(".")) {
+                return;
+            }
+        } else if (data.split("\\+").length == 2) {
+            numbers = data.split("\\+");
+            if (numbers[1].contains(".")) {
+                return;
+            }
+        } else if (data.split("-").length == 2) {
+            numbers = data.split("-");
+            if (numbers[1].contains(".")) {
+                return;
+            }
+        } else if (data.split("-").length == 3) {
+            numbers = data.split("-");
+            if (numbers[2].contains(".")) {
+                return;
+            }
+        }
+
         if (data.length() < 1 || data.endsWith(".") || data.endsWith("x") || data.endsWith("÷") || data.endsWith("-") || data.endsWith("+"))
             return;
         else {
@@ -409,6 +479,8 @@ public class MainActivity extends AppCompatActivity {
     private void checkpercent() {
         if (data.length() < 1 || data.endsWith("x") || data.endsWith("÷") || data.endsWith("-") || data.endsWith("+") || data.endsWith("%"))
             return;
+        else if (data.endsWith(".") && data.length() > 1)
+            data = data.substring(0, data.length() - 1) + "%";
         else
             data += "%";
     }
