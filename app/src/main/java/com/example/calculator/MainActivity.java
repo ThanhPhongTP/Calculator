@@ -496,7 +496,7 @@ public class MainActivity extends AppCompatActivity {
                 data = n[0];
             }
             else
-                data = n[0] + "." + n[1].substring(0,8);
+                data = n[0] + "." + n[1].substring(0,6);
         }
         tvkq.setText(data);
     }
