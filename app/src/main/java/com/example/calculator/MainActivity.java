@@ -160,8 +160,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (data.split("\\+").length == 2) {                      //--------Cong-------//
             tvpt.setText(data);
             String numbers[] = data.split("\\+");
-            double summation
-                    = 0;
+            double summation = 0;
             /*tinh % cong*/
             //cong % 2 so a% + b%
             if (numbers[0].contains("%") && numbers[1].contains("%")) {
@@ -309,45 +308,40 @@ public class MainActivity extends AppCompatActivity {
             if (data.endsWith("%") || data.endsWith("+") || data.endsWith("-") || data.endsWith("x")
                     || data.endsWith("÷") || (data.startsWith(".") && data.length() == 1) || (data.startsWith("-") && data.length() == 1))
                 return;
-            else if(data.split("x").length == 2){  // nghich dao b
+            else if (data.split("x").length == 2) {  // nghich dao b
                 numbers = data.split("x");
                 nd = Double.parseDouble(numbers[1]) * -1;
                 String a = nd + "";
                 String newnd[] = a.split("\\.");
-                if(newnd[1].equals("0"))
+                if (newnd[1].equals("0"))
                     data = numbers[0] + "x" + newnd[0];
                 else if (!newnd[1].equals("0"))
                     data = numbers[0] + "x" + a;
-            }
-            else if(data.split("\\+").length == 2){
+            } else if (data.split("\\+").length == 2) {
                 numbers = data.split("\\+");
                 nd = Double.parseDouble(numbers[1]) * -1;
                 String a = nd + "";
                 String newnd[] = a.split("\\.");
-                if(newnd[1].equals("0"))
+                if (newnd[1].equals("0"))
                     data = numbers[0] + "+" + newnd[0];
                 else if (!newnd[1].equals("0"))
                     data = numbers[0] + "+" + a;
-            }
-            else if(data.split("÷").length == 2){
+            } else if (data.split("÷").length == 2) {
                 numbers = data.split("÷");
                 nd = Double.parseDouble(numbers[1]) * -1;
                 String a = nd + "";
                 String newnd[] = a.split("\\.");
-                if(newnd[1].equals("0"))
+                if (newnd[1].equals("0"))
                     data = numbers[0] + "÷" + newnd[0];
                 else if (!newnd[1].equals("0"))
                     data = numbers[0] + "÷" + a;
-            }
-            else if(data.split("-").length == 3){ //-a--b = -a+b
+            } else if (data.split("-").length == 3) { //-a--b = -a+b
                 numbers = data.split("-");
                 data = "-" + numbers[1] + "+" + numbers[2];
-            }
-            else if(data.split("-").length == 2 && !data.startsWith("-")) { // a--b = a+b
+            } else if (data.split("-").length == 2 && !data.startsWith("-")) { // a--b = a+b
                 numbers = data.split("-");
                 data = numbers[0] + "+" + numbers[1];
-            }
-            else {
+            } else {
                 nd = Double.parseDouble(data) * -1;
                 data = nd + "";
             }
@@ -501,6 +495,8 @@ public class MainActivity extends AppCompatActivity {
             if (n[1].equals("0")) {
                 data = n[0];
             }
+            else
+                data = n[0] + "." + n[1].substring(0,8);
         }
         tvkq.setText(data);
     }

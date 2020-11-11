@@ -33,135 +33,135 @@
 
             <Button
                 android:id="@+id/btnac"
+                style="@style/btnAC_C_PT"
                 android:onClick="buttonClick"
-                android:text="@string/AC"
-                style="@style/btnAC_C_PT"></Button>
+                android:text="@string/AC"></Button>
 
             <Button
                 android:id="@+id/btndelete"
+                style="@style/btnAC_C_PT"
                 android:onClick="buttonClick"
-                android:text="@string/xoa"
-                style="@style/btnAC_C_PT"></Button>
+                android:text="@string/xoa"></Button>
 
             <Button
                 android:id="@+id/btnphantram"
+                style="@style/btnAC_C_PT"
                 android:onClick="buttonClick"
-                android:text="@string/phantram"
-                style="@style/btnAC_C_PT"></Button>
+                android:text="@string/phantram"></Button>
 
             <Button
                 android:id="@+id/btnchia"
+                style="@style/btnPhepTinh"
                 android:onClick="buttonClick"
-                android:text="@string/chia"
-                style="@style/btnPhepTinh"></Button>
+                android:text="@string/chia"></Button>
         </TableRow>
 
         <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnbay"
-                android:text="@string/bay"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/bay"></Button>
 
             <Button
                 android:id="@+id/btntam"
-                android:text="@string/tam"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/tam"></Button>
 
             <Button
                 android:id="@+id/btnchin"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                android:text="@string/chin"
-                style="@style/btnSo"></Button>
+                android:text="@string/chin"></Button>
 
             <Button
                 android:id="@+id/btnnhan"
+                style="@style/btnPhepTinh"
                 android:onClick="buttonClick"
-                android:text="@string/nhan"
-                style="@style/btnPhepTinh"></Button>
+                android:text="@string/nhan"></Button>
         </TableRow>
 
         <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnbon"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                android:text="@string/bon"
-                style="@style/btnSo"></Button>
+                android:text="@string/bon"></Button>
 
             <Button
                 android:id="@+id/btnnam"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                android:text="@string/nam"
-                style="@style/btnSo"></Button>
+                android:text="@string/nam"></Button>
 
             <Button
                 android:id="@+id/btnsau"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                android:text="@string/sau"
-                style="@style/btnSo"></Button>
+                android:text="@string/sau"></Button>
 
             <Button
                 android:id="@+id/btntru"
+                style="@style/btnPhepTinh"
                 android:onClick="buttonClick"
-                android:text="@string/tru"
-                style="@style/btnPhepTinh"></Button>
+                android:text="@string/tru"></Button>
         </TableRow>
 
         <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnmot"
-                android:text="@string/mot"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/mot"></Button>
 
             <Button
                 android:id="@+id/btnhai"
-                android:text="@string/hai"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/hai"></Button>
 
             <Button
                 android:id="@+id/btnba"
-                android:text="@string/ba"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/ba"></Button>
 
             <Button
                 android:id="@+id/btncong"
-                android:text="@string/cong"
+                style="@style/btnPhepTinh"
                 android:onClick="buttonClick"
-                style="@style/btnPhepTinh"></Button>
+                android:text="@string/cong"></Button>
         </TableRow>
 
         <TableRow style="@style/tbrow">
 
             <Button
                 android:id="@+id/btnkhong"
-                android:text="@string/khong"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/khong"></Button>
 
             <Button
                 android:id="@+id/btncham"
-                android:text="@string/cham"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                style="@style/btnSo"></Button>
+                android:text="@string/cham"></Button>
 
             <Button
                 android:id="@+id/btnnghicdao"
+                style="@style/btnSo"
                 android:onClick="buttonClick"
-                android:text="@string/nghichdao"
-                style="@style/btnSo"></Button>
+                android:text="@string/nghichdao"></Button>
 
             <Button
                 android:id="@+id/btnbang"
-                android:text="@string/bang"
+                style="@style/btnPhepTinh"
                 android:onClick="buttonClick"
-                style="@style/btnPhepTinh"></Button>
+                android:text="@string/bang"></Button>
         </TableRow>
     </TableLayout>
 
